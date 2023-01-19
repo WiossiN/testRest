@@ -12,3 +12,4 @@ content-type: application/json
 
 ###
 
+GET http://test-front/rest HTTP/1.1

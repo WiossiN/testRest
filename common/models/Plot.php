@@ -90,8 +90,8 @@ class Plot extends \yii\db\ActiveRecord
             $updatePrepare = $newPlotArray = array_diff($inputArray, ArrayHelper::getColumn($plots, 'cadastraNumber'));
         }
 
-        if (($query->andWhere(['<', 'updated_at', strtotime('-1 second')])->count()) > 0) {
-            $oldesPlots = $query->andWhere(['<', 'updated_at', strtotime('-1 second')])->all();
+        if (($query->andWhere(['<', 'updated_at', strtotime('-1 hour')])->count()) > 0) {
+            $oldesPlots = $query->andWhere(['<', 'updated_at', strtotime('-1 hour')])->all();
             $updatePrepare = array_merge($updatePrepare, ArrayHelper::getColumn($oldesPlots, 'cadastraNumber'));
         }
 
@@ -127,6 +127,6 @@ class Plot extends \yii\db\ActiveRecord
             }
         }
 
-        return self::find()->where(['cadastraNumber' => $inputArray])->all();
+        return self::find()->where(['cadastraNumber' => $inputArray]);
     }
 }

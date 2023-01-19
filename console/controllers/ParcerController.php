@@ -5,6 +5,7 @@ namespace console\controllers;
 use common\models\Plot;
 use yii\console\Controller;
 use yii\console\ExitCode;
+use yii\console\widgets\Table;
 
 class ParcerController extends Controller
 {
@@ -15,19 +16,12 @@ class ParcerController extends Controller
      */
     public function actionParce($inputCadastr)
     {
-        $result = Plot::getByCadastra($inputCadastr);
+        $result = Plot::getByCadastra($inputCadastr)->asArray()->all();
 
-        echo '---------------------------------------------------------------------------------------------------------------------------------------------------' . PHP_EOL;
-        echo '|  CN                |  Addres                                                                                                     | Price | Area |' . PHP_EOL;
-
-        foreach ($result as $item) {
-
-            echo '---------------------------------------------------------------------------------------------------------------------------------------------------' . 
-            PHP_EOL;
-            echo '| ' . $item->cadastraNumber . ' | ' . $item->address . ' | ' . $item->price . ' | ' . $item->area . ' | ' . PHP_EOL;
-        }
-
-        echo '---------------------------------------------------------------------------------------------------------------------------------------------------' . PHP_EOL;
+        echo Table::widget([
+            'headers' => ['ID', 'CN', 'Addres', 'Price', 'Area', 'Created', 'Updated'],
+            'rows' => $result,
+        ]);
 
         return ExitCode::OK;
     }
