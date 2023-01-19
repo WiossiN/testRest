@@ -1,0 +1,14 @@
+GET https://api.pkk.bigland.ru/test/plots HTTP/1.1
+content-type: application/json
+
+{
+    "collection": {
+        "plots": [
+            "69:27:0000022:1306",
+            "69:27:0000022:1307"
+        ]
+    }
+}
+
+###
+
