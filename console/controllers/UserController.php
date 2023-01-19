@@ -14,10 +14,11 @@ class UserController extends Controller
      *
      * @return string
      */
-    public function actionCreate($email = 'test@test.ru', $password = 'test1')
+    public function actionCreate($username = 'user', $email = 'test@test.ru', $password = 'test1')
     {
         $user = new User();
         $user->email = $email;
+        $user->username = $username;
         $user->generateAuthKey();
         $user->status = User::STATUS_ACTIVE;
         $user->password = $password;
