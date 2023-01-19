@@ -25,7 +25,7 @@ class m230119_083537_create_plot_table extends Migration
             'price' => $this->double()->notNull(),
             'area' => $this->double()->notNull(),
             'created_at' => $this->integer()->notNull(),
-            'updatet_at' => $this->integer()->notNull(),
+            'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
     }
 
