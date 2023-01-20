@@ -77,7 +77,7 @@ class Plot extends \yii\db\ActiveRecord
      */
     public static function getByCadastra(string $inputCadastr)
     {
-        $inputArray = explode(',', trim($inputCadastr, ","));
+        $inputArray = explode(',', trim($inputCadastr, ", "));
 
         $query = self::find()->where(['cadastraNumber' => $inputArray]);
 

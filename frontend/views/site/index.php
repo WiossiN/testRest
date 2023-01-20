@@ -2,8 +2,8 @@
 
 /** @var yii\web\View $this */
 
+use yii\bootstrap4\Html;
 use yii\grid\GridView;
-use yii\helpers\Html;
 
 $this->title = 'My Yii Application';
 ?>
@@ -18,7 +18,7 @@ $this->title = 'My Yii Application';
             <div class="col-lg-12">
                 <?= Html::beginForm(['/'], 'GET', ['id' => 'search-form']); ?>
 
-                <?= Html::textInput('textInput', '', ['rows' => 6]) ?>
+                <?= Html::textInput('textInput', Yii::$app->request->get('textInput'), ['rows' => 6]) ?>
 
                 <div class="form-group">
                     <?= Html::submitButton('Поиск', ['class' => 'btn btn-primary']); ?>
@@ -45,3 +45,12 @@ $this->title = 'My Yii Application';
         </div>
     </div>
 </div>
+
+<style>
+    #search-form {
+        text-align: center;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+</style>

@@ -51,6 +51,7 @@ return [
                         'GET rest' => 'rest',
                     ],
                 ],
+                '/' => 'site/index',
                 'site/index' => 'site/index',
                 'site/about' => 'site/about',
                 'site/contact' => 'site/contact',
